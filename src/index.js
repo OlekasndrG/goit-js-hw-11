@@ -5,12 +5,11 @@ import API from './js/fetchPictures.js';
 import LoadMoreBtn from './js/srollBtn.js';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-
-let counter = 0;
-const gallery = new SimpleLightbox('.gallery a', {
+const lightbox = new SimpleLightbox('.gallery a', {
   overlayOpacity: 0.3,
   showCounter: false,
 });
+let counter = 0;
 
 const Picture = new API();
 const inputEl = document.getElementById('search-form');
@@ -33,6 +32,7 @@ function onInput(event) {
   Picture.resetPage();
   loadMoreBtn.show();
   fetchPictures().finally(() => inputEl.reset());
+  // gallery.refresh();
 }
 
 async function fetchPictures() {
@@ -40,7 +40,7 @@ async function fetchPictures() {
   counter += Picture.per_page;
   console.log(counter);
   // checkTotalHits();
-
+  lightbox.refresh();
   return await Picture.getPictures()
     .then(picture => {
       if (picture.hits.length === 0) {
@@ -53,10 +53,12 @@ async function fetchPictures() {
         Notiflix.Notify.failure(
           "We're sorry, but you've reached the end of search results."
         );
+        lightbox.refresh();
       } else if (counter <= 21) {
         Notiflix.Notify.info(
           `"Hooray! We found ${picture.totalHits} images."'`
         );
+        lightbox.refresh();
       }
       return picture.hits;
     })
