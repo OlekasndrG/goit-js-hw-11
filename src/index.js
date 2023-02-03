@@ -4,7 +4,7 @@ import './css/styles.css';
 import API from './js/fetchPictures.js';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-// import LoadMoreBtn from './js/LoadMoreBtn.js';
+import LoadMoreBtn from './js/LoadMoreBtn.js';
 let counter = 0;
 const gallery = new SimpleLightbox('.gallery a', {
   overlayOpacity: 0.3,
