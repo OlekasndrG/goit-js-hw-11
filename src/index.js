@@ -1,7 +1,7 @@
 // import debounce from 'lodash.debounce';
 import Notiflix from 'notiflix';
 import './css/styles.css';
-import API from './js/fetchCountries.js';
+import API from './js/fetchPictures.js';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import LoadMoreBtn from './js/LoadMoreBtn.js';
