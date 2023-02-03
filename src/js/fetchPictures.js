@@ -8,7 +8,7 @@ export default class Picture {
     this.name = '';
     this.page = 1;
     // this.totalHits = 0;
-    this.per_page = 20;
+    this.per_page = 40;
   }
 
   // async getTotalHIts() {

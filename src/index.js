@@ -5,10 +5,11 @@ import API from './js/fetchPictures.js';
 import LoadMoreBtn from './js/srollBtn.js';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-const lightbox = new SimpleLightbox('.gallery a', {
+let lightbox = new SimpleLightbox('.gallery a', {
   overlayOpacity: 0.3,
   showCounter: false,
 });
+
 let counter = 0;
 
 const Picture = new API();
@@ -54,7 +55,7 @@ async function fetchPictures() {
           "We're sorry, but you've reached the end of search results."
         );
         lightbox.refresh();
-      } else if (counter <= 21) {
+      } else if (counter <= 41) {
         Notiflix.Notify.info(
           `"Hooray! We found ${picture.totalHits} images."'`
         );
