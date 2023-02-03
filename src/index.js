@@ -2,9 +2,10 @@
 import Notiflix from 'notiflix';
 import './css/styles.css';
 import API from './js/fetchPictures.js';
+import LoadMoreBtn from './js/srollBtn.js';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-import LoadMoreBtn from './js/LoadMoreBtn.js';
+
 let counter = 0;
 const gallery = new SimpleLightbox('.gallery a', {
   overlayOpacity: 0.3,
